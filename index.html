@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Shoe Vault</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Header Styles */
+  .header {
+    background-color: #000000;
+    color: #fff;
+  }
+  
+  .navbar {
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  .cart-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+  
+  .component-wrapper {
+    display: flex;
+    justify-content: center;
+    background-size: 100%;
+  }
+  
+  .content-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+    background-color: blue;
+  }
+  
+  .cta-link {
+    margin-left: 10px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    margin-right: 10px;
+  }
+  
+  .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .menu li {
+    margin-right: 20px;
+  }
+  
+  .menu li a {
+    position: relative;
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .menu li a::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+  
+  .menu li a:hover {
+    color: #ff0000; /* Update with your desired color */
+  }
+  
+  .menu li a:hover::before {
+    transform: scaleX(1);
+  }
+  .menu li:last-child {
+    margin-right: 0;
+  }
+  
+  
+  /* Hero Section Styles */
+  .hero {
+    background-image: url('hero-image.jpg');
+    background-size: 72%;
+    background-position: center;
+    padding: 120px 0;
+  }
+  
+.hero-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+.hero-btn {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 15px 40px;
+  font-size: 20px;
+  text-decoration: none;
+  border-radius: 30px;
+  margin-right: 50px;
+  transition: background-color 0.3s ease;
+}
+
+  
+  .hero-btn:hover {
+    background-color: #3a3a3a;
+  }
+  
+  /* Featured Products Section Styles */
+
+  .section-products {
+    padding: 80px 0 54px;
+}
+
+.section-products .header {
+    margin-bottom: 50px;
+    padding: 15px 20px;
+}
+
+.section-products .header h1 {
+    font-size: 1.5rem;
+    color: #fe302f;
+    font-weight: 500;
+    font-style: bold;
+}
+
+.section-products .single-product {
+    margin-bottom: 26px;
+}
+
+.section-products .single-product .part-1 {
+    position: relative;
+    height: 290px;
+    max-height: 290px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.section-products #product-1 .part-1 {
+  background: url("product1.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-3 .part-1 {
+  background: url("product3.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-5 .part-1 {
+    background: url("product5.jpg") no-repeat center;
+    background-size: cover;
+}
+
+.section-products #product-7 .part-1 {
+  background: url("product7.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-9 .part-1 {
+  background: url("product9.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-11 .part-1 {
+  background: url("product11.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-13 .part-1 {
+  background: url("product13.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-15 .part-1 {
+background: url("product15.jpg") no-repeat center;
+background-size: cover;
+}
+
+.section-products .single-product .part-1 ul {
+    position: absolute;
+    bottom: -41px;
+    left: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    opacity: 0;
+    transition: bottom 0.5s, opacity 0.5s;
+}
+
+.section-products .single-product:hover .part-1 ul {
+    bottom: 30px;
+    opacity: 1;
+}
+
+.section-products .single-product .part-1 ul li {
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.section-products .single-product .part-1 ul li a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #ffffff;
+    color: #444444;
+    text-align: center;
+    box-shadow: 0 2px 20px rgb(50 50 50 / 10%);
+    transition: color 0.2s;
+}
+
+.section-products .single-product .part-1 ul li a:hover {
+    color: #fe302f;
+}
+
+.section-products .single-product .part-2 h4 {
+  display: inline-block;
+  font-size: 1rem;
+}
+
+.section-products .single-product .part-2 .product-old-price {
+  position: relative;
+  padding: 0 7px;
+  margin-right: 2px;
+  opacity: 0.6;
+}
+  
+  /* Footer Styles */
+  .footer {
+    background-color: #4d4d4d;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .footer p {
+    margin: 0;
+  }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+        <div class="container">
+          <a href="#" class="logo"><img src="logo.png" width="96px" height="54px" alt="logo"></a>          
+          <ul class="menu">
+            <li><a href="http://localhost:3000/">Home</a></li>
+            <li><a href="http://localhost:3000/men">Men</a></li>
+            <li><a href="http://localhost:3000/women">Women</a></li>
+            <li><a href="http://localhost:3001/">Contact</a></li>
+            <li><a href="http://localhost:3002/"><i class="fas fa-shopping-cart"></i></a></li>
+          </ul>
+        </div>
+    </nav>      
+    <div class="hero">
+      <div class="container">
+        <h1 class="hero-title">Elevate Your Style</h1>
+        <a href="#" class="hero-btn">Shop Now</a>
+      </div>
+    </div>
+  </header>
+  <section class="section-products">
+    <div class="row justify-content-center text-center">
+      <div class="col-md-8 col-lg-6">
+          <div class="header">
+              <h1>Featured Products</h1>
+          </div>
+      </div>
+  </div>
+		<div class="container">
+				<div class="row">
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-1" class="single-product">
+								<div class="part-1" >
+									<ul>
+                                        <li><a href="#" onclick="addToCart('product-1', 30.99, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: CONVERSE</h3>
+									<h4 class="product-price">$30.99</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-3" class="single-product">
+								<div class="part-1" >
+									<ul>
+										<li><a href="#" onclick="addToCart('product-3', 65.50, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: CONVERSE</h3>
+									<h4 class="product-price">$65.50</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-5" class="single-product">
+								<div class="part-1">
+									<ul>
+										<li><a href="#" onclick="addToCart('product-5', 29.99, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: CONVERSE</h3>
+									<h4 class="product-price">$29.99</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-7" class="single-product">
+								<div class="part-1" >
+									<ul>
+										<li><a href="#" onclick="addToCart('product-7', 43.25, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: NIKE</h3>
+									<h4 class="product-price">$43.25</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-9" class="single-product">
+								<div class="part-1" >
+									<ul>
+										<li><a href="#" onclick="addToCart('product-9', 39.99, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: ADIDAS</h3>
+									<h4 class="product-price">$39.99</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-11" class="single-product">
+								<div class="part-1" >
+									<ul>
+										<li><a href="#" onclick="addToCart('product-11', 149.50, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: GUCCI</h3>
+									<h4 class="product-price">$149.50</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-13" class="single-product">
+								<div class="part-1">
+									<ul>
+										<li><a href="#" onclick="addToCart('product-13', 78.00, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: VANS</h3>
+									<h4 class="product-price">$78.00</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-15" class="single-product">
+								<div class="part-1" >
+									<ul>
+										<li><a href="#" onclick="addToCart('product-15', 45.99, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: NIKE</h3>
+									<h4 class="product-price">$45.99</h4>
+								</div>
+							</div>
+						</div>
+				</div>
+		</div>
+</section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2023 Shoe Vault. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script >
+function addToCart(productID, cost, quantity) {
+  const product = {
+    productID: productID,
+    cost: cost,
+    quantity: quantity
+  };
+
+  fetch('/add-to-cart', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(product)
+  })
+    .then(response => response.text())
+    .then(data => {
+      console.log(data);
+      // Show an alert message indicating the product was added to the cart
+      alert('Product added to cart!');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Show an alert message for errors
+      alert('Error adding product to cart!');
+    });
+}
+  </script>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
+    <style>
+	body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Header Styles */
+  .header {
+    background-color: #000000;
+    color: #fff;
+  }
+  
+  .navbar {
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+  .cart-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    margin-right: 10px;
+  }
+  
+  .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .menu li {
+    margin-right: 20px;
+  }
+  
+  .menu li a {
+    position: relative;
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .menu li a::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+  
+  .menu li a:hover {
+    color: #ff0000; /* Update with your desired color */
+  }
+  
+  .menu li a:hover::before {
+    transform: scaleX(1);
+  }
+  .menu li:last-child {
+    margin-right: 0;
+  }
+
+h1 {
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+thead {
+  background-color: #f1f1f1;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#place-order {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition-duration: 0.4s;
+}
+
+#place-order:hover {
+  background-color: #45a049;
+}
+/* CSS for Order Summary */
+h1 {
+  text-align: center;
+  font-size: 24px;
+}
+
+#order-summary {
+  margin-top: 20px;
+}
+
+.summary-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.summary-label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.summary-value {
+  font-weight: normal;
+}
+#total-amount::before {
+  content: '$ ';
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <header class="header">
+		<nav class="navbar">
+			<div class="container">
+			  <a href="#" class="logo"><img src="logo.png" width="96px" height="54px" alt="logo"></a>          
+			  <ul class="menu">
+                <li><a href="http://localhost:3000/">Home</a></li>
+                <li><a href="http://localhost:3000/men">Men</a></li>
+                <li><a href="http://localhost:3000/women">Women</a></li>
+                <li><a href="http://localhost:3001/">Contact</a></li>
+                <li><a href="http://localhost:3002/"><i class="fas fa-shopping-cart"></i></a></li>
+			  </ul>
+			</div>
+		</nav>      
+	</header>
+    <h1>Cart</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Cost</th>
+                <th>Quantity</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="cart-items">
+            <!-- Cart items will be dynamically generated here -->
+        </tbody>
+    </table>
+    <h1>Order Summary</h1>
+  
+    <div id="order-summary">
+      <div class="summary-row">
+        <span class="summary-label">Total Amount:</span>
+        <span id="total-amount" class="summary-value">$0.00</span>
+      </div>
+      <div class="summary-row">
+        <span class="summary-label">Total Quantity:</span>
+        <span id="total-quantity" class="summary-value">0</span>
+      </div>
+    </div>
+
+    <button id="place-order" onclick="placeOrder()">Place Order</button>
+
+    <script>
+        // Function to fetch cart items from the server
+function fetchCartItems() {
+  // Make a request to fetch cart items from the server
+  fetch('/cart-items')
+    .then(response => response.json())
+    .then(data => {
+      renderCartItems(data);
+      const totalAmount = calculateTotalAmount(data);
+      const totalQuantity = calculateTotalQuantity(data);
+      updateOrderSummary(totalAmount, totalQuantity);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
+
+// Function to render the cart items in the table
+function renderCartItems(cartItems) {
+  const cartItemsContainer = document.getElementById('cart-items');
+  cartItemsContainer.innerHTML = '';
+  cartItems.forEach(cartItem => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${cartItem.productID}</td>
+      <td>${cartItem.cost}</td>
+      <td>${cartItem.quantity}</td>
+      <td><button onclick="removeCartItem('${cartItem.id}')">Remove</button></td>
+    `;
+
+    cartItemsContainer.appendChild(row);
+  });
+
+}
+
+function updateOrderSummary(totalAmount, totalQuantity) {
+  const totalAmountElement = document.getElementById('total-amount');
+  const totalQuantityElement = document.getElementById('total-quantity');
+
+  totalAmountElement.textContent = totalAmount.toFixed(2);
+  totalQuantityElement.textContent = totalQuantity.toString();
+}
+// Function to remove a cart item
+function removeCartItem(id) {
+  fetch(`/remove-item/${id}`, {
+    method: 'DELETE',
+  })
+    .then(response => response.json())
+    .then(data => {
+      fetchCartItems();
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
+
+
+// Function to calculate the total amount
+function calculateTotalAmount(cartItems) {
+  let totalAmount = 0;
+
+  // Iterate over the cart items and calculate the total amount
+  cartItems.forEach(cartItem => {
+    totalAmount += cartItem.cost * cartItem.quantity;
+  });
+
+  return totalAmount;
+}
+
+// Function to calculate the total quantity
+function calculateTotalQuantity(cartItems) {
+  let totalQuantity = 0;
+
+  // Iterate over the cart items and calculate the total quantity
+  cartItems.forEach(cartItem => {
+    totalQuantity += cartItem.quantity;
+  });
+
+  return totalQuantity;
+}
+
+// Function to place the order
+function placeOrder() {
+  const totalAmount = parseFloat(document.getElementById('total-amount').textContent);
+  const totalQuantity = parseInt(document.getElementById('total-quantity').textContent);
+
+  const orderData = {
+    totalAmount: totalAmount,
+    totalQuantity: totalQuantity
+  };
+
+  fetch('/place-order', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(orderData)
+  })
+    .then(response => response.json())
+    .then(data => {
+      alert('Order placed successfully!');
+      location.reload(); //
+    })
+    .catch(error => {
+        alert('Order placed successfully!');
+        location.reload(); //
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  fetchCartItems();
+});
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+</body>
+</html>

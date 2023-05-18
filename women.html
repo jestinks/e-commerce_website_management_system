@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Women</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
+<style>
+	body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Header Styles */
+  .header {
+    background-color: #000000;
+    color: #fff;
+  }
+  
+  .navbar {
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+  .cart-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    margin-right: 10px;
+  }
+  
+  .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .menu li {
+    margin-right: 20px;
+  }
+  
+  .menu li a {
+    position: relative;
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .menu li a::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+  
+  .menu li a:hover {
+    color: #ff0000; /* Update with your desired color */
+  }
+  
+  .menu li a:hover::before {
+    transform: scaleX(1);
+  }
+  .menu li:last-child {
+    margin-right: 0;
+  }
+	  /* Featured Products Section Styles */
+
+	  .section-products {
+    padding: 80px 0 54px;
+}
+
+.section-products .header {
+    margin-bottom: 50px;
+    padding: 15px 20px;
+}
+
+.section-products .header h1 {
+    font-size: 1.5rem;
+    color: #fe302f;
+    font-weight: 500;
+    font-style: bold;
+}
+
+.section-products .single-product {
+    margin-bottom: 26px;
+}
+
+.section-products .single-product .part-1 {
+    position: relative;
+    height: 290px;
+    max-height: 290px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.section-products #product-17 .part-1 {
+  background: url("product17.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-18 .part-1 {
+  background: url("product18.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-19 .part-1 {
+  background: url("product19.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-20 .part-1 {
+  background: url("product20.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-21 .part-1 {
+  background: url("product21.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-22 .part-1 {
+  background: url("product22.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-23 .part-1 {
+  background: url("product23.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-24 .part-1 {
+  background: url("product24.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-25 .part-1 {
+  background: url("product25.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-26 .part-1 {
+  background: url("product26.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-27 .part-1 {
+  background: url("product27.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-28 .part-1 {
+  background: url("product28.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-29 .part-1 {
+  background: url("product29.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-30 .part-1 {
+  background: url("product30.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-31 .part-1 {
+  background: url("product31.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.section-products #product-32 .part-1 {
+  background: url("product32.jpg") no-repeat center;
+  background-size: cover;
+}
+
+
+.section-products .single-product .part-1 ul {
+    position: absolute;
+    bottom: -41px;
+    left: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    opacity: 0;
+    transition: bottom 0.5s, opacity 0.5s;
+}
+
+.section-products .single-product:hover .part-1 ul {
+    bottom: 30px;
+    opacity: 1;
+}
+
+.section-products .single-product .part-1 ul li {
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.section-products .single-product .part-1 ul li a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #ffffff;
+    color: #444444;
+    text-align: center;
+    box-shadow: 0 2px 20px rgb(50 50 50 / 10%);
+    transition: color 0.2s;
+}
+
+.section-products .single-product .part-1 ul li a:hover {
+    color: #fe302f;
+}
+
+.section-products .single-product .part-2 h4 {
+  display: inline-block;
+  font-size: 1rem;
+}
+
+.section-products .single-product .part-2 .product-old-price {
+  position: relative;
+  padding: 0 7px;
+  margin-right: 2px;
+  opacity: 0.6;
+}
+</style>
+</head>
+<body>
+	<header class="header">
+		<nav class="navbar">
+			<div class="container">
+			  <a href="#" class="logo"><img src="logo.png" width="96px" height="54px" alt="logo"></a>          
+			  <ul class="menu">
+				<li><a href="http://localhost:3000/">Home</a></li>
+				<li><a href="http://localhost:3000/men">Men</a></li>
+				<li><a href="http://localhost:3000/women">Women</a></li>
+				<li><a href="http://localhost:3001/">Contact</a></li>
+				<li><a href="http://localhost:3002/"><i class="fas fa-shopping-cart"></i></a></li>
+			  </ul>
+			</div>
+		</nav>      
+	</header>
+<section class="section-products">
+		<div class="container">
+				<div class="row">
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-17" class="single-product">
+								<div class="part-1" >
+									<ul>
+										<li><a href="#" onclick="addToCart('product-17', 30.99, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: NIKE</h3>
+									<h4 class="product-price">$30.99</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-18" class="single-product">
+								<div class="part-1" >
+									<ul>
+										<li><a href="#" onclick="addToCart('product-18', 38.67, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: NIKE</h3>
+									<h4 class="product-price">$38.67</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-19" class="single-product">
+								<div class="part-1" >
+									<ul>
+										<li><a href="#" onclick="addToCart('product-19', 65.50, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: NIKE</h3>
+									<h4 class="product-price">$65.50</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-20" class="single-product">
+								<div class="part-1">
+									<ul>
+										<li><a href="#" onclick="addToCart('product-20', 40.99, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: ADIDAS</h3>
+									<h4 class="product-price">$40.99</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-21" class="single-product">
+								<div class="part-1">
+									<ul>
+										<li><a href="#" onclick="addToCart('product-21', 29.99, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: ADIDAS</h3>
+									<h4 class="product-price">$29.99</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-22" class="single-product">
+								<div class="part-1">
+									<ul>
+										<li><a href="#" onclick="addToCart('product-22', 55.50, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: ADIDAS</h3>
+									<h4 class="product-price">$55.50</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-23" class="single-product">
+								<div class="part-1" >
+									<ul>
+										<li><a href="#" onclick="addToCart('product-23', 43.25, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: ADIDAS</h3>
+									<h4 class="product-price">$43.25</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-24" class="single-product">
+								<div class="part-1" >
+									<ul>
+										<li><a href="#" onclick="addToCart('product-24', 49.99, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: ADIDAS</h3>
+									<h4 class="product-price">$49.99</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-25" class="single-product">
+								<div class="part-1" >
+									<ul>
+										<li><a href="#" onclick="addToCart('product-25', 39.99, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: NIKE</h3>
+									<h4 class="product-price">$39.99</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-26" class="single-product">
+								<div class="part-1" >
+									<ul>
+										<li><a href="#" onclick="addToCart('product-26', 29.99, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: CONVERSE</h3>
+									<h4 class="product-price">$29.99</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-27" class="single-product">
+								<div class="part-1" >
+									<ul>
+										<li><a href="#" onclick="addToCart('product-27', 49.50, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: CONVERSE</h3>
+									<h4 class="product-price">$49.50</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-28" class="single-product">
+								<div class="part-1">
+									<ul>
+										<li><a href="#" onclick="addToCart('product-28', 56.99, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: CONVERSE</h3>
+									<h4 class="product-price">$56.99</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-29" class="single-product">
+								<div class="part-1">
+									<ul>
+										<li><a href="#" onclick="addToCart('product-29', 78.00, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: GUCCI</h3>
+									<h4 class="product-price">$78.00</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-30" class="single-product">
+								<div class="part-1">
+									<ul>
+										<li><a href="#" onclick="addToCart('product-30', 89.99, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: GUCCI</h3>
+									<h4 class="product-price">$89.99</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-31" class="single-product">
+								<div class="part-1" >
+									<ul>
+										<li><a href="#" onclick="addToCart('product-31', 109.99, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: GUCCI</h3>
+									<h4 class="product-price">$109.99</h4>
+								</div>
+							</div>
+						</div>
+						<!-- Single Product -->
+						<div class="col-md-6 col-lg-4 col-xl-3">
+							<div id="product-32" class="single-product">
+								<div class="part-1" >
+									<ul>
+										<li><a href="#" onclick="addToCart('product-32', 34.99, 1)"><i class="fas fa-shopping-cart"></i></a></li>
+									</ul>
+								</div>
+								<div class="part-2">
+									<h3 class="product-title">Brand: VANS</h3>
+									<h4 class="product-price">$34.99</h4>
+								</div>
+							</div>
+						</div>
+				</div>
+		</div>
+</section>
+<script>
+	function addToCart(productID, cost, quantity) {
+  const product = {
+    productID: productID,
+    cost: cost,
+    quantity: quantity
+  };
+
+  fetch('/add-to-cart', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(product)
+  })
+    .then(response => response.text())
+    .then(data => {
+      console.log(data);
+      // Show an alert message indicating the product was added to the cart
+      alert('Product added to cart!');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Show an alert message for errors
+      alert('Error adding product to cart!');
+    });
+}
+  </script>
+</body>
+</html>
+
