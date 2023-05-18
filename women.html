@@ -115,7 +115,12 @@
 }
 
 .section-products .single-product {
-    margin-bottom: 26px;
+	background-color: rgba(255, 255, 255, 0.8);
+	margin-right: 20px;
+	margin-bottom: 20px;
+	width: 280px;
+	border: 1px solid #ccc;
+	padding: 10px;
 }
 
 .section-products .single-product .part-1 {
@@ -255,6 +260,52 @@
   margin-right: 2px;
   opacity: 0.6;
 }
+.bg {
+  animation: slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, rgb(148, 51, 204) 50%, rgb(255, 72, 0) 50%);
+  bottom: 0;
+  left: -50%;
+  opacity: 0.5;
+  position: fixed;
+  right: -50%;
+  top: 0;
+  z-index: -1;
+}
+
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+
+.bg3 {
+  animation-duration: 5s;
+}
+  
+.content {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 0.25em;
+  box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.25);
+  box-sizing: flex;
+  left: 50%;
+  padding: 10vmin;
+  position: fixed;
+  text-align: center;
+  top: 30%;
+  transform: translate(-50%, -50%);
+}
+
+h1 {
+  font-family: monospace;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(25%);
+  }
+}
 </style>
 </head>
 <body>
@@ -272,6 +323,9 @@
 			</div>
 		</nav>      
 	</header>
+	<div class="bg"></div>
+	<div class="bg bg2"></div>
+	<div class="bg bg3"></div>
 <section class="section-products">
 		<div class="container">
 				<div class="row">
