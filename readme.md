@@ -11,6 +11,12 @@
 ```sh
 npm install
 ```
+
+4. Run
+```sh
+npm install express mysql body-parser path uuid
+```
+
 4. Run
 ```sh
 npm start
