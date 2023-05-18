@@ -5,12 +5,12 @@
     b) contact.sql
     c) myorders.sql
 
-2. Replace the MySQL connection credentials in server.js
+2. Replace the MySQL connection credentials in server files listed:
+    a)cart-server.js
+    b)contact-server.js
+    c)order-server.js
 
 3. Run
-```sh
-npm install
-```
 ```sh
 npm install express mysql body-parser path uuid
 ```
