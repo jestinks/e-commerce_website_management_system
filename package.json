@@ -1,7 +1,7 @@
 {
   "name": "e-commerce_website_management_system",
   "scripts": {
-    "start": "concurrently \"node contact-server.js\" \"node cart-server.js\" \"node order-server.js\""
+    "start": "node server.js"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
